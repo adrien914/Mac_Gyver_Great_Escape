@@ -11,6 +11,5 @@ x x xxxxxxxxxxx
 x x xx        x
 x             x
 x x xx        x
-x x xxxxxxxxxxx
 xEx           x
 xGxxxxxxxxxxxxx
