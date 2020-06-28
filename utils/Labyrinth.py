@@ -1,5 +1,6 @@
-import os
 import random
+import os
+
 
 class Labyrinth:
     """ This class represents the labyrinth, create a labyrinth by calling Labyrinth(map_name) """
@@ -7,6 +8,7 @@ class Labyrinth:
     player_position = []
     guardian_position = []
     picked_up_objects = 0
+    window = None
 
     def __init__(self, map):
         with open("maps/" + map) as map_file:
@@ -78,6 +80,7 @@ class Labyrinth:
         self.layout[new_y][new_x] = "P"
         self.player_position = [new_y, new_x]
         if self.picked_up_objects == 3:
+            self.window.all_active_sprites.remove(self.window.guardian)
             y, x = self.guardian_position
             self.layout[y][x] = " "
 
@@ -97,7 +100,12 @@ class Labyrinth:
             print("You win")
             exit()
         elif tile == '0' or tile == '1' or tile == '2':
-            print("picked up:", tile)
+            if tile == '0':
+                self.window.all_active_sprites.remove(self.window.seringue)
+            elif tile == '1':
+                self.window.all_active_sprites.remove(self.window.tube_plastique)
+            elif tile == '2':
+                self.window.all_active_sprites.remove(self.window.ether)
             self.picked_up_objects += 1
         return True
 
