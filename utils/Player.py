@@ -39,7 +39,6 @@ class Player(pygame.sprite.Sprite):
         self.changey -= 30
 
     def update(self):
-        '''update the player'''
         # make player static in screen by default
         self.rect.x += self.changex
         self.rect.y += self.changey
