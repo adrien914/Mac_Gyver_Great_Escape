@@ -1,9 +1,11 @@
 import random
-import os
 
 
 class Labyrinth:
-    """ This class represents the labyrinth, create a labyrinth by calling Labyrinth(map_name) """
+    """
+    This class represents the labyrinth,
+    create a labyrinth by calling Labyrinth(map_name)
+    """
     layout = []
     player_position = []
     guardian_position = []
@@ -12,10 +14,14 @@ class Labyrinth:
 
     def __init__(self, map):
         with open("maps/" + map) as map_file:
-            for i, line in enumerate(map_file):  # Get the labyrinth representation from the given file
-                if i < 15:  # if the height goes over 15 don't add the following lines
-                    self.layout.append(list(line[:15].replace("\n", "")))  # Add a line as a list to the layout after removing the line break
-        self.seek_item("P")  # Search for the player's position so we can put it in the player_position variable
+            # Get the labyrinth representation from the given file
+            for i, line in enumerate(map_file):
+                # if the height goes over 15 don't add the following lines
+                if i < 15:
+                    # Add a line without line breaks as a list to the layout
+                    self.layout.append(list(line[:15].replace("\n", "")))
+        # Search for the player's position so we can put it in the variable
+        self.seek_item("P")
         self.seek_item("E")
         self.place_items()
 
@@ -27,9 +33,11 @@ class Labyrinth:
             for index_x, tile in enumerate(line):  # Iterate over the x axis
                 if tile == item:  # If the tile contains a player
                     if item == "P":
-                        self.player_position = [index_y, index_x]  # Set the player position to this tile
+                        # Set the player position to this tile
+                        self.player_position = [index_y, index_x]
                     else:
-                        self.guardian_position = [index_y, index_x]  # Set the guardian position to this tile
+                        # Set the guardian position to this tile
+                        self.guardian_position = [index_y, index_x]
                     return  # stop the function
         if not self.player_position:
             print("couldn't find player")
@@ -96,7 +104,9 @@ class Labyrinth:
         """
         try:
             tile = self.layout[y][x]
-        except IndexError:  # It will throw an IndexError if the next position is out of range of the list
+        # It will throw an IndexError if the
+        # next position is out of range of the list
+        except IndexError:
             return False
         if tile == "x":  # if the tile is a wall return False
             return False
@@ -105,15 +115,20 @@ class Labyrinth:
         elif tile == "G":  # if the tile is the goal, exit the game
             exit()
         elif tile == '0' or tile == '1' or tile == '2':
-            # Position the item on the right side of the labyrinth in the order of their pick-up
-            rect = (len(self.layout[0]) * 30 + 5, (self.picked_up_objects * 30) + 20)
+            # Position the item on the right side of
+            # the labyrinth in the order of their pick-up
+            rect = (
+                len(self.layout[0]) * 30 + 5,
+                (self.picked_up_objects * 30) + 20
+            )
             if tile == '0':
                 self.window.aiguille.rect = rect
             elif tile == '1':
                 self.window.tube_plastique.rect = rect
             elif tile == '2':
                 self.window.ether.rect = rect
-            self.picked_up_objects += 1  # increment the number of picked up objects
+            # increment the number of picked up objects
+            self.picked_up_objects += 1
         return True
 
     def get_free_tiles(self):

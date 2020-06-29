@@ -1,5 +1,6 @@
 import pygame
 
+
 class NonPlayerSprites(pygame.sprite.Sprite):
     image = None
     rect = None
@@ -15,8 +16,3 @@ class NonPlayerSprites(pygame.sprite.Sprite):
 
         # starting location
         self.rect.centerx, self.rect.bottom = position
-
-
-    def update(self):
-        '''update the player'''
-        return

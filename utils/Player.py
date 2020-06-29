@@ -18,7 +18,6 @@ class Player(pygame.sprite.Sprite):
         self.rect.centerx = 200
         self.rect.bottom = 200
 
-
         # other player attributes
         self.changex = 0
         self.changey = 0

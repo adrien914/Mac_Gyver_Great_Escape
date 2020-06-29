@@ -1,8 +1,8 @@
 import pygame
-from pygame.locals import KEYUP, KEYDOWN
 from utils.Player import Player
 from utils.Spritesheet import Spritesheet
 from utils.NonPlayerSprites import NonPlayerSprites
+
 
 class Window:
     screen = None
