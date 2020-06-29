@@ -6,7 +6,7 @@ class Player(pygame.sprite.Sprite):
     rect = None
     screen = None
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.image = pygame.image.load('ressource/MacGyver.png').convert()
         # scale player image
@@ -22,23 +22,23 @@ class Player(pygame.sprite.Sprite):
         self.changex = 0
         self.changey = 0
 
-    def move_left(self):
+    def move_left(self) -> None:
         '''move player left'''
         self.changex -= 30
 
-    def move_right(self):
+    def move_right(self) -> None:
         '''move player right'''
         self.changex += 30
 
-    def move_down(self):
+    def move_down(self) -> None:
         '''move player left'''
         self.changey += 30
 
-    def move_up(self):
+    def move_up(self) -> None:
         '''move player right'''
         self.changey -= 30
 
-    def update(self):
+    def update(self) -> None:
         # make player static in screen by default
         self.rect.x += self.changex
         self.rect.y += self.changey

@@ -6,7 +6,7 @@ class NonPlayerSprites(pygame.sprite.Sprite):
     rect = None
     screen = None
 
-    def __init__(self, image: str, position: tuple):
+    def __init__(self, image: str, position: tuple) -> None:
         super().__init__()
         self.image = pygame.image.load('ressource/' + image).convert()
         # scale image

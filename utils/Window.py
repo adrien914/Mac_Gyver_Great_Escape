@@ -2,13 +2,13 @@ import pygame
 from utils.Player import Player
 from utils.Spritesheet import Spritesheet
 from utils.NonPlayerSprites import NonPlayerSprites
-
+from utils.Labyrinth import Labyrinth
 
 class Window:
     screen = None
     all_active_sprites = None
 
-    def __init__(self, labyrinth):
+    def __init__(self, labyrinth: Labyrinth) -> None:
         self.labyrinth = labyrinth
         pygame.init()
         size = 500, 500
@@ -33,7 +33,7 @@ class Window:
         self.lava = self.tiles.image_at((0, 20*12, 20, 20))
         self.wall = self.tiles.image_at((0, 20*12, 20, 20))
 
-    def refresh(self):
+    def refresh(self) -> None:
         self.all_active_sprites.update()
         self.screen.fill((0, 0, 0))
         for index_y, line in enumerate(self.labyrinth.layout):
