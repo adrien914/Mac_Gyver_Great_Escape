@@ -18,7 +18,6 @@ class Labyrinth:
         self.seek_item("P")  # Search for the player's position so we can put it in the player_position variable
         self.seek_item("E")
         self.place_items()
-        self.render()  # Render the labyrinth
 
     def seek_item(self, item):
         """
@@ -49,7 +48,6 @@ class Labyrinth:
         }
         try:
             switch[direction.lower()]()
-            self.render()
         except KeyError:
             print("wrong input")
             pass
@@ -81,32 +79,41 @@ class Labyrinth:
         self.player_position = [new_y, new_x]
         if self.picked_up_objects == 3:
             self.window.all_active_sprites.remove(self.window.guardian)
+            self.window.all_active_sprites.remove(self.window.aiguille)
+            self.window.all_active_sprites.remove(self.window.ether)
+            self.window.all_active_sprites.remove(self.window.tube_plastique)
+            self.window.all_active_sprites.add(self.window.seringue)
+            self.window.seringue.rect = (len(self.layout[0]) * 30 + 5, 20)
             y, x = self.guardian_position
             self.layout[y][x] = " "
 
     def check_collision(self, y, x):
+        """
+
+        :param y:
+        :param x:
+        :return:
+        """
         try:
             tile = self.layout[y][x]
-        except IndexError:
+        except IndexError:  # It will throw an IndexError if the next position is out of range of the list
             return False
-        if tile == "x":
+        if tile == "x":  # if the tile is a wall return False
             return False
-        elif tile == "E":
-            # Lose
-            print("You lose")
+        elif tile == "E":  # if the tile is an enemy, exit the game
             exit()
-        elif tile == "G":
-            # Win
-            print("You win")
+        elif tile == "G":  # if the tile is the goal, exit the game
             exit()
         elif tile == '0' or tile == '1' or tile == '2':
+            # Position the item on the right side of the labyrinth in the order of their pick-up
+            rect = (len(self.layout[0]) * 30 + 5, (self.picked_up_objects * 30) + 20)
             if tile == '0':
-                self.window.all_active_sprites.remove(self.window.seringue)
+                self.window.aiguille.rect = rect
             elif tile == '1':
-                self.window.all_active_sprites.remove(self.window.tube_plastique)
+                self.window.tube_plastique.rect = rect
             elif tile == '2':
-                self.window.all_active_sprites.remove(self.window.ether)
-            self.picked_up_objects += 1
+                self.window.ether.rect = rect
+            self.picked_up_objects += 1  # increment the number of picked up objects
         return True
 
     def get_free_tiles(self):
@@ -123,7 +130,3 @@ class Labyrinth:
             random_index = random.randint(0, len(free_tiles))
             x, y = free_tiles.pop(random_index)
             self.layout[x][y] = str(i)
-
-    def render(self):
-        for line in self.layout:
-            print(line)

@@ -16,14 +16,14 @@ class Window:
         self.screen = pygame.display.set_mode(size)
         self.all_active_sprites = pygame.sprite.Group()
         self.player = Player()
-        self.guardian = NonPlayerSprites('Gardien.png', (100, 300))
-        self.seringue = NonPlayerSprites('seringue.png', (100, 400))
-        self.tube_plastique = NonPlayerSprites('tube_plastique.png', (200, 400))
-        self.ether = NonPlayerSprites('ether.png', (300, 400))
-
+        self.guardian = NonPlayerSprites('Gardien.png', (0, 0))
+        self.aiguille = NonPlayerSprites('aiguille.png', (0, 0))
+        self.tube_plastique = NonPlayerSprites('tube_plastique.png', (0, 0))
+        self.ether = NonPlayerSprites('ether.png', (0, 0))
+        self.seringue = NonPlayerSprites('seringue.png', (0, 0))
         self.all_active_sprites.add(self.player,
                                     self.guardian,
-                                    self.seringue,
+                                    self.aiguille,
                                     self.tube_plastique,
                                     self.ether
                                     )
@@ -49,8 +49,8 @@ class Window:
                     self.guardian.rect.left = index_x * 30
                     self.guardian.rect.top = index_y * 30
                 elif column.lower() == "0":
-                    self.seringue.rect.left = index_x * 30
-                    self.seringue.rect.top = index_y * 30
+                    self.aiguille.rect.left = index_x * 30
+                    self.aiguille.rect.top = index_y * 30
                 elif column.lower() == "1":
                     self.tube_plastique.rect.left = index_x * 30
                     self.tube_plastique.rect.top = index_y * 30
