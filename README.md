@@ -1,4 +1,4 @@
-Labyrinth
+<h1>Help MacGyver get out the labyrinth</h1>
 
 Map limits:
 
