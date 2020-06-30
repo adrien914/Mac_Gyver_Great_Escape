@@ -6,7 +6,8 @@ Installation:
 
     - To install and run this app, clone the repository by running:
         git clone https://github.com/adrien914/P3_Aidez_MacGyver_a_s-echapper-.git
-    - 
+    - Install virtualenv if it's not already done:
+        pip3 install virtualenv
     - Create a virtual environment by running:
         virtualenv venv
     - Activate the virtual environment by running:
