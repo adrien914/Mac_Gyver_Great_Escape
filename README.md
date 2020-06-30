@@ -1,11 +1,24 @@
 <h1>Help MacGyver get out the labyrinth</h1>
 
+This application is a Labyrinth game in which you play MacGyver and have to escape by killing the guard with a homemade syringe with way too much ether in it.
+
+Installation:
+
+    - To install and run this app, clone the repository by running:
+        git clone https://github.com/adrien914/P3_Aidez_MacGyver_a_s-echapper-.git
+    - Activate the virtual environment by running:
+        source venv/bin/activate
+    - Run the program by running:
+        python3 Main.py
+    - This program runs on Linux, Windows and MacOS
+
 Map limits:
 
     - The map has to be at most 15 tiles wide and 15 tiles tall
 
     - The map is in a file named sample_map.txt in the directory maps at 
         the root of the application
+
 Map notation:
         
     - x for a wall
