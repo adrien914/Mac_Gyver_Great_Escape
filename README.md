@@ -6,11 +6,18 @@ Installation:
 
     - To install and run this app, clone the repository by running:
         git clone https://github.com/adrien914/P3_Aidez_MacGyver_a_s-echapper-.git
+    - 
+    - Create a virtual environment by running:
+        virtualenv venv
     - Activate the virtual environment by running:
         source venv/bin/activate
+    - If you're not already there move to the root of the application:
+        cd P3_01_programme
+    - Install the requirements by running:
+        pip3 install -r requirements.txt
     - Run the program by running:
         python3 Main.py
-    - This program runs on Linux, Windows and MacOS
+    - This program works with Linux, Windows and MacOS
 
 Map limits:
 
