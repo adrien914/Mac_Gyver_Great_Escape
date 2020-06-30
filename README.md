@@ -42,7 +42,7 @@ python3 Main.py
 - The map is in a file named sample_map.txt in the directory maps at 
 the root of the application
 
-#### Map notation:
+#### Map notation:
         
 - x for a wall
 - blank space for a crossable tile
