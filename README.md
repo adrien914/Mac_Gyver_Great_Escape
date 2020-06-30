@@ -5,20 +5,20 @@ This application is a Labyrinth game in which you play MacGyver and have to esca
 ### Installation:
 
 - To install and run this app, clone the repository by running:
-```
+```bash
 git clone https://github.com/adrien914/P3_Aidez_MacGyver_a_s-echapper-.git
 ```
     
 - Install virtualenv if it's not already done:
-```
+```bash
 pip3 install virtualenv
 ```
 - Create a virtual environment by running:
-```
+```bash
 virtualenv venv
 ```
 - Activate the virtual environment by running:
-```
+```bash
 source venv/bin/activate
 ```
 - If you're not already there move to the root of the application:
@@ -26,11 +26,11 @@ source venv/bin/activate
 cd P3_01_programme
 ``` 
 - Install the requirements by running:
-```
+```bash
 pip3 install -r requirements.txt
 ```
 - Run the program by running:
-```
+```bash
 python3 Main.py
 ```
 - This program works with Linux, Windows and MacOS
