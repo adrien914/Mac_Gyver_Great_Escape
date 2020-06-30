@@ -33,7 +33,8 @@ class Window:
         self.lava = self.tiles.image_at((0, 20*12, 20, 20))
         self.wall = self.tiles.image_at((0, 20*12, 20, 20))
 
-    def text_objects(self, text, font):
+    @staticmethod
+    def text_objects(text, font):
         textSurface = font.render(text, True, (255, 255, 255))
         return textSurface, textSurface.get_rect()
 

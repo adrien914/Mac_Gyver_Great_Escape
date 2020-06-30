@@ -1,5 +1,6 @@
 import random
 
+
 class Labyrinth:
     """
     This class represents the labyrinth,
@@ -11,8 +12,9 @@ class Labyrinth:
     picked_up_objects = 0
     window = None
     state = None
-    def __init__(self, map: str) -> None:
-        with open("maps/" + map) as map_file:
+
+    def __init__(self, _map: str) -> None:
+        with open("maps/" + _map) as map_file:
             # Get the labyrinth representation from the given file
             for i, line in enumerate(map_file):
                 # if the height goes over 15 don't add the following lines
@@ -108,7 +110,8 @@ class Labyrinth:
         # next position is out of range of the list
         except IndexError:
             return False
-        if tile == "x":  # if the tile is a wall return False
+        # if the tile is a wall or the game has already ended return False
+        if tile == "x" or self.state == "win" or self.state == "lose":
             return False
         elif tile == "E":  # if the tile is an enemy, exit the game
             self.state = "lose"
