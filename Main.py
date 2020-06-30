@@ -29,7 +29,10 @@ class Main:
                     if event.key == pygame.K_UP:
                         window.player.move_up()
                         labyrinth.move('u')
-            window.refresh()
+            if labyrinth.state == "win" or labyrinth.state == "lose":
+                window.message_display("You {}!".format(labyrinth.state))
+            else:
+                window.refresh()
 
 
 if __name__ == "__main__":

@@ -33,6 +33,19 @@ class Window:
         self.lava = self.tiles.image_at((0, 20*12, 20, 20))
         self.wall = self.tiles.image_at((0, 20*12, 20, 20))
 
+    def text_objects(self, text, font):
+        textSurface = font.render(text, True, (255, 255, 255))
+        return textSurface, textSurface.get_rect()
+
+    def message_display(self, text):
+        largeText = pygame.font.Font('freesansbold.ttf', 60)
+        TextSurf, TextRect = self.text_objects(text, largeText)
+        TextRect.center = (250, 250)
+        self.all_active_sprites = pygame.sprite.Group()
+        self.screen.fill((0, 0, 0))
+        self.screen.blit(TextSurf, TextRect)
+        pygame.display.update()
+
     def refresh(self) -> None:
         self.all_active_sprites.update()
         self.screen.fill((0, 0, 0))

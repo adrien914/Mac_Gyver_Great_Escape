@@ -1,6 +1,5 @@
 import random
 
-
 class Labyrinth:
     """
     This class represents the labyrinth,
@@ -11,7 +10,7 @@ class Labyrinth:
     guardian_position = []
     picked_up_objects = 0
     window = None
-
+    state = None
     def __init__(self, map: str) -> None:
         with open("maps/" + map) as map_file:
             # Get the labyrinth representation from the given file
@@ -112,9 +111,9 @@ class Labyrinth:
         if tile == "x":  # if the tile is a wall return False
             return False
         elif tile == "E":  # if the tile is an enemy, exit the game
-            exit()
+            self.state = "lose"
         elif tile == "G":  # if the tile is the goal, exit the game
-            exit()
+            self.state = "win"
         elif tile == '0' or tile == '1' or tile == '2':
             # Position the item on the right side of
             # the labyrinth in the order of their pick-up
