@@ -87,14 +87,13 @@ class Labyrinth:
         self.layout[new_y][new_x] = "P"
         self.player_position = [new_y, new_x]
         if self.picked_up_objects == 3:
-            self.window.all_active_sprites.remove(self.window.guardian)
             self.window.all_active_sprites.remove(self.window.aiguille)
             self.window.all_active_sprites.remove(self.window.ether)
             self.window.all_active_sprites.remove(self.window.tube_plastique)
             self.window.all_active_sprites.add(self.window.seringue)
             self.window.seringue.rect = (len(self.layout[0]) * 30 + 5, 20)
-            y, x = self.guardian_position
-            self.layout[y][x] = " "
+            # y, x = self.guardian_position
+            # self.layout[y][x] = " "
 
     def check_collision(self, y: int, x: int) -> bool:
         """
@@ -114,6 +113,9 @@ class Labyrinth:
         if tile == "x" or self.state == "win" or self.state == "lose":
             return False
         elif tile == "E":  # if the tile is an enemy, exit the game
+            if self.picked_up_objects == 3:
+                self.window.all_active_sprites.remove(self.window.guardian)
+                return True
             self.state = "lose"
         elif tile == "G":  # if the tile is the goal, exit the game
             self.state = "win"

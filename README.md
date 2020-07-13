@@ -60,4 +60,4 @@ the root of the application
 - Your goal is to get to the exit of the labyrinth.
      
 - To achieve this goal you have to get the three items scattered on the 
-map to craft a syringe and make the guardian disappear
+map to craft a syringe and kill the guardian with it
